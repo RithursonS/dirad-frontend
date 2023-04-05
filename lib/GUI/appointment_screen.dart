@@ -223,53 +223,8 @@ class AppointmentScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 15,),
-                  /**Container(
-                    height: 70,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 6,
-                        itemBuilder: (context,index){
-                          return InkWell(
-                                child: Container(
-                                  margin: EdgeInsets.symmetric(horizontal: 8,vertical: 5),
-                                  padding: EdgeInsets.symmetric(horizontal: 25,vertical:5),
-                                  decoration: BoxDecoration(
-                                    color: index==1 ? Colors.green: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.green,
-                                        blurRadius: 4,
-                                        spreadRadius: 2,
-                                      ),
-                                    ]
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text('${index+1}',
-                                        style: GoogleFonts.adventPro(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                          color: index==1 ? Colors.black: Colors.black.withOpacity(0.6),
-                                        ),
-                                      ),
-                                      SizedBox(height: 5,),
-                                      Text('March',
-                                        style: GoogleFonts.adventPro(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                          color: index==1 ? Colors.black: Colors.black.withOpacity(0.6),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                        },
-                    ),
-                  ),**/
+                  
+                    
                   TableCalendar(
                     focusedDay: DateTime.now(),
                     firstDay: DateTime(2023),
@@ -370,6 +325,7 @@ class AppointmentScreen extends StatelessWidget {
           ],
         ),
       ),
+      
     );
   }
 }

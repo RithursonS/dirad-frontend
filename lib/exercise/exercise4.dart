@@ -234,12 +234,11 @@ class _ExerciseFourState extends State<ExerciseFour> {
                     ),
                   ),
                   SizedBox(height: 15),
-
                 ],
               ),
             ),
-          )
-      ),
+          )
+      ),
     );
   }
 }
