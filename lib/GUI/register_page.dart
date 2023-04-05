@@ -1,8 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
 class RegisterPage extends StatefulWidget {
   final VoidCallback showLoginPage;
@@ -11,6 +14,9 @@ class RegisterPage extends StatefulWidget {
   State<RegisterPage> createState() => _RegisterPage();
 }
 class _RegisterPage extends State<RegisterPage> {
+
+
+
   final _emailController = TextEditingController();
   var _passwordController = TextEditingController();
   final _conformPasswordController = TextEditingController();
@@ -18,11 +24,11 @@ class _RegisterPage extends State<RegisterPage> {
   final _lastNameController = TextEditingController();
   final _ageController = TextEditingController();
 
-  Future frontend_dirad() async{
+  Future signUp() async{
     if (passwordConfirmed()){
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: _emailController.text.trim(),
-          password: _passwordController.text.trim(),
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
 
 
       );
@@ -34,6 +40,7 @@ class _RegisterPage extends State<RegisterPage> {
     }
 
   }
+
 
 
   Future addUserDetails(String firstName,String lastName,String email,int age,) async{
@@ -51,6 +58,11 @@ class _RegisterPage extends State<RegisterPage> {
     if(_passwordController.text.trim()==_conformPasswordController.text.trim()){
       return true;
     } else{
+      QuickAlert.show(
+        context: context,
+        type: QuickAlertType.error,
+        text: 'Password aren\'t match',
+      );
       return false;
     }
   }
@@ -71,7 +83,7 @@ class _RegisterPage extends State<RegisterPage> {
       backgroundColor: Colors.white70,
       body: SafeArea(
         child: Center(
-        child: SingleChildScrollView(
+          child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -117,9 +129,14 @@ class _RegisterPage extends State<RegisterPage> {
                           hintText: 'First Name',
                           prefixIcon: Icon(Icons.person,color: Colors.orangeAccent,),
                         ),
-                        validator: (val){
+                        onChanged: (val){
                           if(val==null){
-                            return "Last name field must Entered";
+                            QuickAlert.show(
+                              context: context,
+                              type: QuickAlertType.error,
+                              text: 'First Name field is must',
+                              confirmBtnColor: Colors.orangeAccent,
+                            );
                           }
                         },
                       ),
@@ -149,9 +166,14 @@ class _RegisterPage extends State<RegisterPage> {
                           hintText: 'Last Name',
                           prefixIcon: Icon(Icons.person,color: Colors.orangeAccent,),
                         ),
-                        validator: (val){
+                        onChanged: (val){
                           if(val==null){
-                            return "Last name field must Entered";
+                            QuickAlert.show(
+                              context: context,
+                              type: QuickAlertType.error,
+                              text: 'Last Name field is must',
+                              confirmBtnColor: Colors.orangeAccent,
+                            );
                           }
                         },
 
@@ -182,9 +204,14 @@ class _RegisterPage extends State<RegisterPage> {
                           hintText: 'Age',
                           prefixIcon: Icon(Icons.person,color: Colors.orangeAccent,),
                         ),
-                        validator: (val){
+                        onChanged: (val){
                           if(val==null){
-                            return "Age must Entered";
+                            QuickAlert.show(
+                              context: context,
+                              type: QuickAlertType.error,
+                              text: 'Age field is must',
+                              confirmBtnColor: Colors.orangeAccent,
+                            );
                           }
                         },
 
@@ -216,7 +243,15 @@ class _RegisterPage extends State<RegisterPage> {
                           prefixIcon: Icon(Icons.mail_rounded,color: Colors.orangeAccent,),
                         ),
                         validator: (val){
-                          return RegExp(r"^[a-zA-z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_'{|}~]+0[a-zA-Z0-9]+\.[a-zA-z]+").hasMatch(val!)? null : "Please Enter Valid Email";
+                          if(EmailValidator.validate(val!) == true){
+                            QuickAlert.show(
+                              context: context,
+                              type: QuickAlertType.error,
+                              text: 'Email field is must',
+                              confirmBtnColor: Colors.orangeAccent,
+                            );
+                          };
+
                         },
 
                       ),
@@ -249,7 +284,12 @@ class _RegisterPage extends State<RegisterPage> {
                         ),
                         validator: (val){
                           if(val!.length<6){
-                            return "Enter a Password tha contains more than 6 characters";
+                            QuickAlert.show(
+                              context: context,
+                              type: QuickAlertType.error,
+                              text: 'Password field is must',
+                              confirmBtnColor: Colors.orangeAccent,
+                            );
                           }
                         },
 
@@ -283,7 +323,12 @@ class _RegisterPage extends State<RegisterPage> {
                         ),
                         validator: (val){
                           if(!(val==_passwordController)){
-                            return "Password should be at least 6 characters";
+                            QuickAlert.show(
+                              context: context,
+                              type: QuickAlertType.error,
+                              text: 'Password field is must',
+                              confirmBtnColor: Colors.orangeAccent,
+                            );
                           }
                         },
 
@@ -299,7 +344,7 @@ class _RegisterPage extends State<RegisterPage> {
                   width: 360,
                   height: 60,
                   child: ElevatedButton(
-                    onPressed: () {frontend_dirad();},
+                    onPressed: () {signUp();},
                     style: ButtonStyle(
                       foregroundColor: MaterialStateProperty.all<Color>( Colors.orangeAccent),
                       backgroundColor: MaterialStateProperty.all<Color>( Colors.orangeAccent),

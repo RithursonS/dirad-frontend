@@ -55,10 +55,12 @@ class _BookingPageState extends State<BookingPage> {
   ];
 
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(217, 217, 217, 0.7),
+
       body: Container(
         child: SingleChildScrollView(
           child: Column(

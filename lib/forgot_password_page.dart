@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({ Key? key }): super(key: key);
@@ -25,24 +27,22 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       await FirebaseAuth.instance.sendPasswordResetEmail(
         email: _emailController.text.trim(),
       );
-      showDialog(context: context, builder: (context){
-        return AlertDialog(
-          content: Text('The Password Change link has been sent to you email',
-              style: GoogleFonts.bebasNeue(
-                  fontSize: 12)),
-        );
-        },
+      // ignore: use_build_context_synchronously
+      QuickAlert.show(
+        context: context,
+        type: QuickAlertType.success,
+        text: 'Password sent Successfully',
+        confirmBtnColor: Colors.orangeAccent,
       );
 
     } on FirebaseAuthException catch(e){print(e);
-      showDialog(context: context, builder: (context){
-        return AlertDialog(
-          content: Text(e.message.toString(),
-              style: GoogleFonts.bebasNeue(
-        fontSize: 12)),
-        );
-      },
-      );
+    // ignore: use_build_context_synchronously
+    QuickAlert.show(
+      context: context,
+      type: QuickAlertType.error,
+      text: 'Check Your Email Address And Try Again',
+      confirmBtnColor: Colors.orangeAccent,
+    );
     }
   }
 
@@ -66,15 +66,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             ),
 
           ),
-        Padding(
-        padding: const EdgeInsets.only(right: 20,left: 20,top: 20,bottom: 10),
+          Padding(
+            padding: const EdgeInsets.only(right: 20,left: 20,top: 20,bottom: 10),
             child: Text(
-              "Enter the email Address below to reset your password for a new one",
-              textAlign: TextAlign.center,
-              style: GoogleFonts.bebasNeue(
-                  fontSize: 22)
+                "Enter the email Address below to reset your password for a new one",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.bebasNeue(
+                    fontSize: 22)
             ),
-        ),
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: Container(

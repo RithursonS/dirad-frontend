@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:stream_chat_flutter/stream_chat_flutter.dart';
+
 
 class ChatPage extends StatefulWidget {
   const ChatPage({Key? key}) : super(key: key);
