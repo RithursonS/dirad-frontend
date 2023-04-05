@@ -152,8 +152,8 @@ class _DoctorSelectionState extends State<DoctorSelection> {
             ),
           ),
           ],
-        ),
-      ),
+        ),
+      )
     );
   }
 }
