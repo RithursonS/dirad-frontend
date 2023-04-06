@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:frontend_dirad/GUI/results_history.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:frontend_dirad/GUI/about_us.dart';
@@ -170,7 +171,7 @@ class _Profile_pageState extends State<Profile_page> {
                         size: 20,
                       ),
                     ),
-                    title: Text('Privacy and Policy' ,
+                    title: Text('Results History' ,
                       style:GoogleFonts.roboto(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -185,6 +186,9 @@ class _Profile_pageState extends State<Profile_page> {
                       ),
                       child: Icon(LineAwesomeIcons.angle_right,color: Colors.black,size: 20,),
                     ),
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ResultHistory()));
+                    },
 
                   ),
 
@@ -329,36 +333,7 @@ class _Profile_pageState extends State<Profile_page> {
                   },
                 ),
               ),
-              /// -- MENU
-              /**ProfileMenuWidget(title: "Settings", icon: LineAwesomeIcons.cog, onPress: () {}),
-              ProfileMenuWidget(title: "Billing Details", icon: LineAwesomeIcons.wallet, onPress: () {}),
-              ProfileMenuWidget(title: "User Management", icon: LineAwesomeIcons.user_check, onPress: () {}),
-              const Divider(),
-              const SizedBox(height: 10),
-              ProfileMenuWidget(title: "Information", icon: LineAwesomeIcons.info, onPress: () {}),
-              ProfileMenuWidget(
-                  title: "Logout",
-                  icon: LineAwesomeIcons.alternate_sign_out,
-                  textColor: Colors.red,
-                  endIcon: false,
-                  onPress: () {
-                    Get.defaultDialog(
-                      title: "LOGOUT",
-                      titleStyle: const TextStyle(fontSize: 20),
-                      content: const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 15.0),
-                        child: Text("Are you sure, you want to Logout?"),
-                      ),
-                      confirm: Expanded(
-                        child: ElevatedButton(
-                          onPressed: () => AuthenticationRepository.instance.logout(),
-                          style: ElevatedButton.styleFrom(backgroundColor: Colors.redAccent, side: BorderSide.none),
-                          child: const Text("Yes"),
-                        ),
-                      ),
-                      cancel: OutlinedButton(onPressed: () => Get.back(), child: const Text("No")),
-                    );
-                  }),**/
+
             ],
           ),
         ),

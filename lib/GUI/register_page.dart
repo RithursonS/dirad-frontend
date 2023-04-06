@@ -81,311 +81,313 @@ class _RegisterPage extends State<RegisterPage> {
   Widget build (BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white70,
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(15.0),
-                  child: Container(
-                    height: 250,
-                    width: 250,
-                    child: Image.asset("img/logo.png"),
-                  ),
-
-                ),
-                SizedBox(height: 25),
-                Text(
-                    "Happy Pills!!",
-                    style: GoogleFonts.bebasNeue(
-                      fontSize: 52,
-                    )
-                ),
-                SizedBox(height: 10),
-                Text(
-                    "You can Register Here...",
-                    style: TextStyle(
-                        fontSize : 20)
-                ),
-                SizedBox(height: 35),
-
-                //First Name Text Feild
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(12),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(15.0),
+                    child: Container(
+                      height: 250,
+                      width: 250,
+                      child: Image.asset("img/logo.png"),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: TextFormField(
-                        controller: _firstNameController,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'First Name',
-                          prefixIcon: Icon(Icons.person,color: Colors.orangeAccent,),
-                        ),
-                        onChanged: (val){
-                          if(val==null){
-                            QuickAlert.show(
-                              context: context,
-                              type: QuickAlertType.error,
-                              text: 'First Name field is must',
-                              confirmBtnColor: Colors.orangeAccent,
-                            );
-                          }
-                        },
+
+                  ),
+                  SizedBox(height: 25),
+                  Text(
+                      "Happy Pills!!",
+                      style: GoogleFonts.bebasNeue(
+                        fontSize: 52,
+                      )
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                      "You can Register Here...",
+                      style: TextStyle(
+                          fontSize : 20)
+                  ),
+                  SizedBox(height: 35),
+
+                  //First Name Text Feild
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                    ),
-
-                  ),
-
-                ),
-
-                SizedBox(height: 10),
-
-                //Last Name Text Feild
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: TextFormField(
-                        controller: _lastNameController,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Last Name',
-                          prefixIcon: Icon(Icons.person,color: Colors.orangeAccent,),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: TextFormField(
+                          controller: _firstNameController,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'First Name',
+                            prefixIcon: Icon(Icons.person,color: Colors.orangeAccent,),
+                          ),
+                          onChanged: (val){
+                            if(val==null){
+                              QuickAlert.show(
+                                context: context,
+                                type: QuickAlertType.error,
+                                text: 'First Name field is must',
+                                confirmBtnColor: Colors.orangeAccent,
+                              );
+                            }
+                          },
                         ),
-                        onChanged: (val){
-                          if(val==null){
-                            QuickAlert.show(
-                              context: context,
-                              type: QuickAlertType.error,
-                              text: 'Last Name field is must',
-                              confirmBtnColor: Colors.orangeAccent,
-                            );
-                          }
-                        },
-
                       ),
+
                     ),
 
                   ),
 
-                ),
+                  SizedBox(height: 10),
 
-                SizedBox(height: 10),
+                  //Last Name Text Feild
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: TextFormField(
+                          controller: _lastNameController,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Last Name',
+                            prefixIcon: Icon(Icons.person,color: Colors.orangeAccent,),
+                          ),
+                          onChanged: (val){
+                            if(val==null){
+                              QuickAlert.show(
+                                context: context,
+                                type: QuickAlertType.error,
+                                text: 'Last Name field is must',
+                                confirmBtnColor: Colors.orangeAccent,
+                              );
+                            }
+                          },
 
-                //Age Text Feild
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: TextFormField(
-                        controller: _ageController,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Age',
-                          prefixIcon: Icon(Icons.person,color: Colors.orangeAccent,),
                         ),
-                        onChanged: (val){
-                          if(val==null){
-                            QuickAlert.show(
-                              context: context,
-                              type: QuickAlertType.error,
-                              text: 'Age field is must',
-                              confirmBtnColor: Colors.orangeAccent,
-                            );
-                          }
-                        },
-
                       ),
+
                     ),
 
                   ),
 
-                ),
+                  SizedBox(height: 10),
 
-                SizedBox(height: 10),
+                  //Age Text Feild
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: TextFormField(
+                          controller: _ageController,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Age',
+                            prefixIcon: Icon(Icons.person,color: Colors.orangeAccent,),
+                          ),
+                          onChanged: (val){
+                            if(val==null){
+                              QuickAlert.show(
+                                context: context,
+                                type: QuickAlertType.error,
+                                text: 'Age field is must',
+                                confirmBtnColor: Colors.orangeAccent,
+                              );
+                            }
+                          },
 
-                //Email Text Feild
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: TextFormField(
-                        controller: _emailController,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Email',
-                          prefixIcon: Icon(Icons.mail_rounded,color: Colors.orangeAccent,),
                         ),
-                        validator: (val){
-                          if(EmailValidator.validate(val!) == true){
-                            QuickAlert.show(
-                              context: context,
-                              type: QuickAlertType.error,
-                              text: 'Email field is must',
-                              confirmBtnColor: Colors.orangeAccent,
-                            );
-                          };
-
-                        },
-
                       ),
+
                     ),
 
                   ),
 
-                ),
+                  SizedBox(height: 10),
 
-                SizedBox(height: 10),
+                  //Email Text Feild
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: TextFormField(
+                          controller: _emailController,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Email',
+                            prefixIcon: Icon(Icons.mail_rounded,color: Colors.orangeAccent,),
+                          ),
+                          validator: (val){
+                            if(EmailValidator.validate(val!) == true){
+                              QuickAlert.show(
+                                context: context,
+                                type: QuickAlertType.error,
+                                text: 'Email field is must',
+                                confirmBtnColor: Colors.orangeAccent,
+                              );
+                            };
 
-                //Password Text Field
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: TextFormField(
-                        controller: _passwordController,
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Password',
-                          prefixIcon: Icon(Icons.password_outlined,color: Colors.orangeAccent,),
+                          },
+
                         ),
-                        validator: (val){
-                          if(val!.length<6){
-                            QuickAlert.show(
-                              context: context,
-                              type: QuickAlertType.error,
-                              text: 'Password field is must',
-                              confirmBtnColor: Colors.orangeAccent,
-                            );
-                          }
-                        },
-
-
                       ),
+
                     ),
+
                   ),
-                ),
 
+                  SizedBox(height: 10),
 
-                SizedBox(height: 10),
-
-                //Conform Password Text Field
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: TextFormField(
-                        controller: _conformPasswordController,
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Conform the Password',
-                          prefixIcon: Icon(Icons.password_rounded,color: Colors.orangeAccent,),
-                        ),
-                        validator: (val){
-                          if(!(val==_passwordController)){
-                            QuickAlert.show(
-                              context: context,
-                              type: QuickAlertType.error,
-                              text: 'Password field is must',
-                              confirmBtnColor: Colors.orangeAccent,
-                            );
-                          }
-                        },
-
+                  //Password Text Field
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                    ),
-                  ),
-                ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: TextFormField(
+                          controller: _passwordController,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Password',
+                            prefixIcon: Icon(Icons.password_outlined,color: Colors.orangeAccent,),
+                          ),
+                          validator: (val){
+                            if(val!.length<6){
+                              QuickAlert.show(
+                                context: context,
+                                type: QuickAlertType.error,
+                                text: 'Password field is must',
+                                confirmBtnColor: Colors.orangeAccent,
+                              );
+                            }
+                          },
 
 
-                SizedBox(height: 10),
-                //Sign Up Button
-                SizedBox(
-                  width: 360,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {signUp();},
-                    style: ButtonStyle(
-                      foregroundColor: MaterialStateProperty.all<Color>( Colors.orangeAccent),
-                      backgroundColor: MaterialStateProperty.all<Color>( Colors.orangeAccent),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                            side: BorderSide(color: Colors.orangeAccent)
                         ),
                       ),
                     ),
-                    child: Text('Sign Up ', style: GoogleFonts.roboto(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),),
                   ),
-                ),
-                SizedBox(height: 20),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Have an Account Already! ',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold),
+
+
+                  SizedBox(height: 10),
+
+                  //Conform Password Text Field
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                      GestureDetector(
-                        onTap: widget.showLoginPage,
-                        child: Text(
-                          'Lets Login Now? ..',
-                          style: TextStyle(color : Colors.lightBlue,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: TextFormField(
+                          controller: _conformPasswordController,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Conform the Password',
+                            prefixIcon: Icon(Icons.password_rounded,color: Colors.orangeAccent,),
+                          ),
+                          validator: (val){
+                            if(!(val==_passwordController)){
+                              QuickAlert.show(
+                                context: context,
+                                type: QuickAlertType.error,
+                                text: 'Password field is must',
+                                confirmBtnColor: Colors.orangeAccent,
+                              );
+                            }
+                          },
+
+                        ),
+                      ),
+                    ),
+                  ),
+
+
+                  SizedBox(height: 10),
+                  //Sign Up Button
+                  SizedBox(
+                    width: 360,
+                    height: 60,
+                    child: ElevatedButton(
+                      onPressed: () {signUp();},
+                      style: ButtonStyle(
+                        foregroundColor: MaterialStateProperty.all<Color>( Colors.orangeAccent),
+                        backgroundColor: MaterialStateProperty.all<Color>( Colors.orangeAccent),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(color: Colors.orangeAccent)
+                          ),
+                        ),
+                      ),
+                      child: Text('Sign Up ', style: GoogleFonts.roboto(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Have an Account Already! ',
+                          style: TextStyle(
                               fontWeight: FontWeight.bold),
                         ),
-                      ),
-                    ]
-                )
-              ],
+                        GestureDetector(
+                          onTap: widget.showLoginPage,
+                          child: Text(
+                            'Lets Login Now? ..',
+                            style: TextStyle(color : Colors.lightBlue,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ]
+                  )
+                ],
+              ),
             ),
           ),
-        ),
 
+        ),
       ),
     );
   }

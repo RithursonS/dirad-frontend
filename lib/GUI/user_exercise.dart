@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend_dirad/GUI/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../exercise/exercise1.dart';
@@ -584,6 +585,38 @@ class _ExerciseState extends State<Exercise> {
                         ),
                       ),
                     ),
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(top:20, left: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      ElevatedButton(
+                        style: ButtonStyle(
+                            foregroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(255, 204, 102, 1)),
+                            backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(255, 204, 102, 1)),
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18.0),
+                                    side: BorderSide(color: Colors.orangeAccent)
+                                )
+                            )
+                        ),
+
+                        child: Text('Go Home',
+                          style: GoogleFonts.roboto(
+                            fontSize: 22,
+                            color: Colors.white70,
+                            fontWeight: FontWeight.bold,),
+                        ),
+
+                        //Action Listener
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomePage()));},
+                      ),
+                    ],
                   ),
                 ),
 

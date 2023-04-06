@@ -64,6 +64,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  SizedBox(height: 55,),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(15.0),
                     child: Container(
