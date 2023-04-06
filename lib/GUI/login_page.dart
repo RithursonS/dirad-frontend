@@ -68,21 +68,14 @@ class _LoginPageState extends State<LoginPage> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(15.0),
                     child: Container(
-                      height: 250,
-                      width: 250,
-                      child: Image.asset("img/logo.png"),
+                      height: 300,
+                      width: 340,
+                      child: Image.asset("img/frontLogo.png"),
                     ),
 
                   ),
                   SizedBox(height: 10),
-                  Text(
-                      "Happy To Have Here..!!",
-                      style: GoogleFonts.pacifico(
-                        fontSize: 34,
-                        color: Colors.greenAccent[200],
-                      )
-                  ),
-                  SizedBox(height: 10),
+
                   Text(
                       "Your personal information will keep encrypted",
                       style: GoogleFonts.greatVibes(

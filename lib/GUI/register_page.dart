@@ -88,27 +88,24 @@ class _RegisterPage extends State<RegisterPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: Container(
-                      height: 250,
-                      width: 250,
-                      child: Image.asset("img/logo.png"),
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15.0),
+                      child: Container(
+                        height: 300,
+                        width: 340,
+                        child: Image.asset("img/frontLogo.png"),
+                      ),
 
+                    ),
                   ),
-                  SizedBox(height: 25),
-                  Text(
-                      "Happy Pills!!",
-                      style: GoogleFonts.bebasNeue(
-                        fontSize: 52,
-                      )
-                  ),
+
                   SizedBox(height: 10),
                   Text(
-                      "You can Register Here...",
-                      style: TextStyle(
-                          fontSize : 20)
+                      "You can register here",
+                      style: GoogleFonts.greatVibes(
+                          fontSize : 24)
                   ),
                   SizedBox(height: 35),
 
@@ -364,23 +361,26 @@ class _RegisterPage extends State<RegisterPage> {
                     ),
                   ),
                   SizedBox(height: 20),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Have an Account Already! ',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold),
-                        ),
-                        GestureDetector(
-                          onTap: widget.showLoginPage,
-                          child: Text(
-                            'Lets Login Now? ..',
-                            style: TextStyle(color : Colors.lightBlue,
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 45),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Have an Account Already! ',
+                            style: TextStyle(
                                 fontWeight: FontWeight.bold),
                           ),
-                        ),
-                      ]
+                          GestureDetector(
+                            onTap: widget.showLoginPage,
+                            child: Text(
+                              'Lets Login Now? ..',
+                              style: TextStyle(color : Colors.lightBlue,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ]
+                    ),
                   )
                 ],
               ),
