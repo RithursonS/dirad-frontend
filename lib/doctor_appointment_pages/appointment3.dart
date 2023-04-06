@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class AppointmentScreen extends StatelessWidget {
-  const AppointmentScreen({Key? key}) : super(key: key);
+class AppointmentScreenThree extends StatelessWidget {
+  const AppointmentScreenThree({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,23 +19,23 @@ class AppointmentScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height/2.1,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("img/doc1.jpg"),
-                fit: BoxFit.cover,
-                ),
-                borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(20),
-                  bottomLeft: Radius.circular(20),
-                )
+                  image: DecorationImage(
+                    image: AssetImage("img/doc3.jpg"),
+                    fit: BoxFit.cover,
+                  ),
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(20),
+                    bottomLeft: Radius.circular(20),
+                  )
               ),
               child: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                      colors: [
-                        Colors.deepOrangeAccent.withOpacity(0.9),
-                        Colors.deepOrangeAccent.withOpacity(0),
-                        Colors.deepOrangeAccent.withOpacity(0),
-                      ],
+                    colors: [
+                      Colors.deepOrangeAccent.withOpacity(0.9),
+                      Colors.deepOrangeAccent.withOpacity(0),
+                      Colors.deepOrangeAccent.withOpacity(0),
+                    ],
                     begin: Alignment.bottomCenter,
                     end: Alignment.topCenter,
                   ),
@@ -43,38 +45,13 @@ class AppointmentScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                        padding: EdgeInsets.only(top: 30,right: 10,left: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            InkWell(
-                              onTap:(){},
-                              child: Container(
-                                margin: EdgeInsets.all(8),
-                                height: 45,
-                                width: 45,
-                                decoration: BoxDecoration(
-                                  color: Colors.white24,
-                                  borderRadius: BorderRadius.circular(10),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.white10,
-                                        blurRadius: 4,
-                                        spreadRadius: 2,
-                                      ),
-                                    ]
-                                ),
-                                child: Center(
-                                  child: Icon(
-                                      Icons.arrow_back,
-                                    color: Colors.black,
-                                    size: 28,
-                                  ),
-                                ),
-
-                              ),
-                            ),
-                            Container(
+                      padding: EdgeInsets.only(top: 30,right: 10,left: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          InkWell(
+                            onTap:(){},
+                            child: Container(
                               margin: EdgeInsets.all(8),
                               height: 45,
                               width: 45,
@@ -91,14 +68,39 @@ class AppointmentScreen extends StatelessWidget {
                               ),
                               child: Center(
                                 child: Icon(
-                                  Icons.favorite_outline,
+                                  Icons.arrow_back,
                                   color: Colors.black,
                                   size: 28,
                                 ),
                               ),
+
                             ),
-                          ],
-                        ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.all(8),
+                            height: 45,
+                            width: 45,
+                            decoration: BoxDecoration(
+                                color: Colors.white24,
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.white10,
+                                    blurRadius: 4,
+                                    spreadRadius: 2,
+                                  ),
+                                ]
+                            ),
+                            child: Center(
+                              child: Icon(
+                                Icons.favorite_outline,
+                                color: Colors.black,
+                                size: 28,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 80,
@@ -117,7 +119,7 @@ class AppointmentScreen extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(height: 8,),
-                              Text('1.8K',
+                              Text('2.8K',
                                 style: GoogleFonts.adventPro(
                                   fontSize: 22,
                                   fontWeight: FontWeight.bold,
@@ -137,7 +139,7 @@ class AppointmentScreen extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(height: 8,),
-                              Text('8 Years',
+                              Text('12 Years',
                                 style: GoogleFonts.adventPro(
                                   fontSize: 22,
                                   fontWeight: FontWeight.bold,
@@ -179,7 +181,7 @@ class AppointmentScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Dr Mike',
+                  Text('Dr Rihana',
                     style: GoogleFonts.adventPro(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
@@ -196,11 +198,11 @@ class AppointmentScreen extends StatelessWidget {
                       ),
                       SizedBox(width: 5,),
                       Text('Therapist',
-                          style: GoogleFonts.roboto(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
+                        style: GoogleFonts.roboto(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
                       )
                     ],
                   ),
@@ -223,53 +225,7 @@ class AppointmentScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 15,),
-                  /**Container(
-                    height: 70,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 6,
-                        itemBuilder: (context,index){
-                          return InkWell(
-                                child: Container(
-                                  margin: EdgeInsets.symmetric(horizontal: 8,vertical: 5),
-                                  padding: EdgeInsets.symmetric(horizontal: 25,vertical:5),
-                                  decoration: BoxDecoration(
-                                    color: index==1 ? Colors.green: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.green,
-                                        blurRadius: 4,
-                                        spreadRadius: 2,
-                                      ),
-                                    ]
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text('${index+1}',
-                                        style: GoogleFonts.adventPro(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                          color: index==1 ? Colors.black: Colors.black.withOpacity(0.6),
-                                        ),
-                                      ),
-                                      SizedBox(height: 5,),
-                                      Text('March',
-                                        style: GoogleFonts.adventPro(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                          color: index==1 ? Colors.black: Colors.black.withOpacity(0.6),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                        },
-                    ),
-                  ),**/
+
                   TableCalendar(
                     focusedDay: DateTime.now(),
                     firstDay: DateTime(2023),
@@ -345,24 +301,37 @@ class AppointmentScreen extends StatelessWidget {
                   //Bokking Button
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                      child: Container(
-                          padding: EdgeInsets.all(20),
-                          decoration: BoxDecoration(color: Colors.orangeAccent,
-                              borderRadius: BorderRadius.circular(12)
-                          ),
-
-                          child: Center(
-                            child: Text(
-                                'Book Appointment',
-                                style: TextStyle(color: Colors.white,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold
-                                )
-
+                    child:SizedBox(
+                      width: 360,
+                      height: 60,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          QuickAlert.show(
+                            context: context,
+                            type: QuickAlertType.success,
+                            text: 'Your Booking Has Been Conformed Please Check '
+                                'on the Booking History',
+                            confirmBtnColor: Colors.orangeAccent,
+                          );
+                        },
+                        style: ButtonStyle(
+                          foregroundColor: MaterialStateProperty.all<Color>( Colors.orangeAccent),
+                          backgroundColor: MaterialStateProperty.all<Color>( Colors.orangeAccent),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                                side: BorderSide(color: Colors.orangeAccent)
                             ),
-
-                          )
+                          ),
+                        ),
+                        child: Text('Book Appointment ', style: GoogleFonts.roboto(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        ),
                       ),
+                    ),
                   ),
                 ],
               ),

@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend_dirad/GUI/reacting_emotion.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:frontend_dirad/GUI/react_emotion.dart';
@@ -318,7 +319,7 @@ class _StartPageState extends State<StartPage> {
                               ),
 
                               //Action Listener
-                              onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context)=>EmotionReaction()));},
+                              onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context)=>EmotionSelection()));},
                             ),
                           ],
                         ),
@@ -329,100 +330,6 @@ class _StartPageState extends State<StartPage> {
                   ),
                 ),
                 ),
-
-                /**Padding(
-                  padding: const EdgeInsets.only(left: 20,right: 20),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 200,
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            colors: [
-                              Colors.green.withOpacity(0.8),
-                              Colors.lightGreen.withOpacity(0.9)
-
-                            ]
-                        ),
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          bottomLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                          bottomRight: Radius.circular(80),
-                        ),
-
-                        boxShadow: [
-                          BoxShadow(
-                            spreadRadius: 2,
-                            blurRadius: 20,
-                            color: Colors.greenAccent.withOpacity(0.9),
-                          )
-                        ]
-                    ),
-
-                    child: Container(
-                      padding: const EdgeInsets.only(left:20, top: 20,right: 28 ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Time to Find Your Mental Health Condition!!',
-                              style: GoogleFonts.badScript(
-                                fontSize: 16,
-                                color: Colors.green,
-                                fontWeight: FontWeight.bold,
-                                fontFeatures: [
-                                  FontFeature.enable('smcp'),
-                                ],
-                              )
-                          ),
-                          SizedBox(height: 10),
-                          Text('By Pressing Start ',
-                              style: GoogleFonts.bebasNeue(
-                                fontSize: 25,
-                                color: Colors.greenAccent[400],
-                              )
-                          ),
-
-                          SizedBox(height: 5),
-
-                          Text('Button Begin the Process',
-                              style: GoogleFonts.bebasNeue(
-                                fontSize: 25,
-                                color: Colors.greenAccent[400],
-                              )
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              ElevatedButton(
-                                style: ButtonStyle(
-                                    foregroundColor: MaterialStateProperty.all<Color>(Colors.greenAccent),
-                                    backgroundColor: MaterialStateProperty.all<Color>(Colors.greenAccent),
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(18.0),
-                                            side: BorderSide(color: Colors.greenAccent)
-                                        )
-                                    )
-                                ),
-
-                                child: Text('Start',
-                                  style: GoogleFonts.abhayaLibre(
-                                    fontSize: 26,
-                                    color: Colors.white70,
-                                    fontWeight: FontWeight.bold,),
-                                ),
-
-                                //Action Listener
-                                onPressed: () {},
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),**/
-
 
               ],
             ),

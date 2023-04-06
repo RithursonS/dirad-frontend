@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -18,12 +20,35 @@ class _UserResultState extends State<UserResult> {
 
   var result = EmotionReaction.response;
 
+  final userMail = FirebaseAuth.instance.currentUser!.email!;
+
+  static String firstName = "";
+  var prediction ;
+
+  Future<void> getUserDetails(String email) async {
+    QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .where('email', isEqualTo: email)
+        .get();
+    if (querySnapshot.docs.isNotEmpty) {
+      DocumentSnapshot documentSnapshot = querySnapshot.docs.first;
+      firstName = documentSnapshot.get('first name');
+
+
+      // Do something with the user details...
+      print('First Name: $firstName');
+
+    } else {
+      // Handle the case where the user is not found...
+      print('User not found for email: $email');
+    }
+  }
+
   String finalResult() {
     if (result == null || result.isEmpty) {
       return "No result found";
     }
-
-    var prediction = "";
+    prediction = "";
     var preResult = 'The result is ${result}';
     try {
       if (preResult == 'The result is "1"') {
@@ -42,6 +67,26 @@ class _UserResultState extends State<UserResult> {
     }
     return prediction;
   }
+
+
+  Future addDetails(String firstName,String email,String result,) async{
+    await FirebaseFirestore.instance.collection('results').add({
+      'first name':firstName ,
+      'email': email,
+      'result': result,
+
+    });
+  }
+
+
+  Future fetch() async{
+
+      addDetails(
+          firstName,
+          userMail,
+        prediction);//int.parse(_ageController.text.trim())
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -184,12 +229,18 @@ class _UserResultState extends State<UserResult> {
                               ),
                               SizedBox(height: 10),
 
-                              Text('${finalResult()} !!',
-                                  style: GoogleFonts.bebasNeue(
-                                    fontSize: 22,
-                                    color: Colors.white,
-                                  )
-                              ),
+                            FutureBuilder(
+                                future: getUserDetails(userMail),
+                                builder: (context, snapshot){
+                                  return Text('$firstName ${finalResult()} !!',
+                                      style: GoogleFonts.bebasNeue(
+                                        fontSize: 22,
+                                        color: Colors.white,
+                                      )
+                                  );
+                                }
+                                ),
+
                               SizedBox(height: 20),
 
                               Text('press start to go for the exercise page',
@@ -222,7 +273,9 @@ class _UserResultState extends State<UserResult> {
                                     ),
 
                                     //Action Listener
-                                    onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Exercise()));},
+                                    onPressed: () {
+                                      fetch();
+                                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Exercise()));},
                                   ),
                                 ],
                               ),
@@ -261,7 +314,9 @@ class _UserResultState extends State<UserResult> {
                         ),
 
                         //Action Listener
-                        onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomePage()));},
+                        onPressed: () {
+                          fetch();
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomePage()));},
                       ),
                     ],
                   ),

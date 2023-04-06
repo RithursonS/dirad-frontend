@@ -4,8 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:frontend_dirad/GUI/api_call.dart';
 import 'package:frontend_dirad/GUI/result_page.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
-import 'result_page2.dart';
 
 class EmotionReaction extends StatefulWidget {
   const EmotionReaction({Key? key}) : super(key: key);
@@ -237,6 +238,13 @@ class _EmotionReactionState extends State<EmotionReaction> {
                           onPressed: () async {
                             var user = _userTextController.text;
                             try {
+                              QuickAlert.show(
+                                context: context,
+                                type: QuickAlertType.loading,
+                                title: "Loading",
+                                text: 'Your Results Is Loading!',
+                                confirmBtnColor: Colors.deepOrangeAccent,
+                              );
                               EmotionReaction.response = await ClientAPI().postData(user);
                               debugPrint(EmotionReaction.response);
                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>UserResult()));
