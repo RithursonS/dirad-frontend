@@ -150,11 +150,7 @@ class ChatWidgets {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileScreen()));
                   },
                 ),
-                ListTile(
-                  leading: const Icon(Icons.logout),
-                  title: const Text('Logout'),
-                  onTap: ()async=>await FirebaseAuth.instance.signOut(),
-                )
+
               ],
             ),
           ),

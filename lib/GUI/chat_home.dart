@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.orangeAccent,
       appBar: AppBar(
         backgroundColor: Colors.orangeAccent,
-        title: const Text('Flash Chat'),
+        title: const Text('Happy Chat'),
         elevation: 0,
         centerTitle: true,
         actions: [

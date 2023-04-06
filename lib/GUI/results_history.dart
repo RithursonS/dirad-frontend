@@ -143,23 +143,28 @@ class _ResultHistoryState extends State<ResultHistory> {
                       color: Colors.orangeAccent
                   )
               ),
-              Container(
+              SizedBox(
                 height: 2900,
-                child: Expanded(
-                    child: FutureBuilder(
-                      future: getUserDetails(userMail),
-                      builder: (context, snapshot){
-                        return ListView.builder(
-                          itemCount: results.length,
-                          itemBuilder: (context, index){
-                            return ListTile(
-                              title: Text(results[index]),
+                width: double.infinity,
+                child: Column(
+                  children: [
+                        Expanded(
+                        child: FutureBuilder(
+                          future: getUserDetails(userMail),
+                          builder: (context, snapshot){
+                            return ListView.builder(
+                              itemCount: results.length,
+                              itemBuilder: (context, index){
+                                return ListTile(
+                                  title: Text(results[index]),
+                                );
+                              },
                             );
                           },
-                        );
-                      },
 
-                    )),
+                        )),
+                      ],
+                ),
               )
             ],
           )
