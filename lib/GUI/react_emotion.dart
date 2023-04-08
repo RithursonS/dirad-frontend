@@ -33,14 +33,14 @@ class _EmotionReactionState extends State<EmotionReaction> {
       body:SingleChildScrollView(
         child: SafeArea(
           child: Container(
-            height: 1580,
+            ///height: 1580,
             child: Column(
               children: [
                 Padding(
                 padding: const EdgeInsets.only(top:30 , right: 15,left: 15, bottom: 10),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 220,
+                  height: 240,
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
                           colors: [

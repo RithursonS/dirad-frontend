@@ -281,9 +281,7 @@ class _Profile_pageState extends State<Profile_page> {
                     ),
                     child: Icon(LineAwesomeIcons.angle_right,color: Colors.black,size: 20,),
                   ),
-                  onTap: (){
-                    FirebaseAuth.instance.signOut();
-                  },
+                  onTap: ()async=>await FirebaseAuth.instance.signOut(),
 
                 ),
               ),
